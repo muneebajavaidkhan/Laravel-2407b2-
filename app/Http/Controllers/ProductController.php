@@ -34,4 +34,29 @@ class ProductController extends Controller
        $products =  Product::where('id',$id)->first(); //2
        return view('EditProd',compact('products'));
     }
+
+
+    public function ProdUpdate(Request $request,$id){
+        $prod =  Product::where('id',$id)->first();
+
+        if($request->hasFile('image')){
+           $image =  $request->file('image');
+           $ImageName =  time(). '.'.$request->image->getClientOriginalExtension();
+           $request->image->move(public_path('images'),$ImageName);
+           $prod->image = $ImageName; 
+
+        }
+
+        $prod->name = $request->name;
+        $prod->description = $request->description;
+        $prod->price = $request->price;
+        $prod->save();
+        return redirect()->route('prodView');
+    }
+    public function ProdDelete($id){ //2
+        $products =  Product::where('id',$id)->first(); //2
+        $products->delete();
+        return redirect()->route('prodView');
+    
+    }
 }

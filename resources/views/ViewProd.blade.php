@@ -19,7 +19,7 @@
             <td>{{$items->price}}</td>
             <td><img src="{{asset('images/'.$items->image)}}" alt="Image" width="100"></td>
             <td><a href="productEdit/{{$items->id}}" class = "btn btn-primary">Edit</a></td>
-            <td><a href="" class = "btn btn-danger">Delete</a></td>
+            <td><a href="productDelete/{{$items->id}}" class = "btn btn-danger">Delete</a></td>
         </tr>
         @endforeach
     </tbody>

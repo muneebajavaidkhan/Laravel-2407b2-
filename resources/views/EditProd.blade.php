@@ -7,8 +7,9 @@
 <div class="container"> 
     <br><br><h3>Edit Product in Database</h3> <br>
 
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{route('prodUpdate',$products->id)}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PUT') 
         <div class="form-group">
             <label for="name" class="fw-bold">Product Name:</label>
             <input type="text" class="form-control mt-3" id="name" 
@@ -34,10 +35,13 @@
         <div class="form-group">
             <label for="pwd" class = "mt-3 fw-bold">Product Image:</label>
             <input type="file" class="form-control mt-3" id="edu"  name="image" >
+            <div class = "mt-3">
+                <p class = "text-muted">{{$products->image}}</p>
+            </div>
            
         </div>
       
 
-        <button type="submit" class="btn btn-primary mt-5" name="ins">Submit</button>
+        <button type="submit" class="btn btn-primary mt-5" name="ins">Update</button>
     </form>
 </div>

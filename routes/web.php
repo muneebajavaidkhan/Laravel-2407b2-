@@ -19,4 +19,11 @@ Route::get('productView',[ProductController::class,'ProdView'])->name('prodView'
 
 Route::get('productEdit/{id}',[ProductController::class,'ProdEdit'])->name('prodEdit');
 
+Route::put('productUpdate/{id}',[ProductController::class,'ProdUpdate'])->name('prodUpdate');
+
+Route::get('productDelete/{id}',[ProductController::class,'ProdDelete'])->name('prodDel');
+
+
+
+
 
